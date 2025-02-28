@@ -1,0 +1,17 @@
+<footer class="wrapper">
+  <mat-spinner diameter="24" *ngIf="audioLoading$ | async"></mat-spinner>
+  <ng-container *ngIf="(audio$ | async) as audioData">
+    <div class="audio">
+      <p class="name">{{ audioData.title }}</p>
+      <button
+        [ngClass]="{visible: audioData}"
+        class="button"
+        mat-icon-button
+        (click)="playAudio(audioData.audioUrl)">
+          <mat-icon class="icon">play_arrow</mat-icon>
+      </button>
+    </div>
+  </ng-container>
+
+  <p class="site-name">Audio table</p>
+</footer>
